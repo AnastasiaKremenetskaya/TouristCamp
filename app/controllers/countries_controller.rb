@@ -1,25 +1,13 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
-
-  # GET /countries
-  # GET /countries.json
   def index
     @countries = Country.all
   end
 
-  # GET /countries/1
-  # GET /countries/1.json
-  def show
-  end
-
-  # GET /countries/new
   def new
     @country = Country.new
   end
 
-  # GET /countries/1/edit
-  def edit
-  end
 
   # POST /countries
   # POST /countries.json
@@ -28,25 +16,22 @@ class CountriesController < ApplicationController
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to @country, notice: 'Country was successfully created.' }
-        format.json { render :show, status: :created, location: @country }
+        format.html { redirect_to countries_path, notice: 'Страна успено добавлена' }
       else
         format.html { render :new }
-        format.json { render json: @country.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /countries/1
-  # PATCH/PUT /countries/1.json
+  def edit
+  end
+
   def update
     respond_to do |format|
       if @country.update(country_params)
-        format.html { redirect_to @country, notice: 'Country was successfully updated.' }
-        format.json { render :show, status: :ok, location: @country }
+        format.html { redirect_to countries_path, notice: 'Country was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @country.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +42,6 @@ class CountriesController < ApplicationController
     @country.destroy
     respond_to do |format|
       format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -69,6 +53,6 @@ class CountriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def country_params
-    params.fetch(:country, {})
+    params.require(:country).permit(:name)
   end
 end

@@ -1,6 +1,45 @@
-<h1>Editing Country</h1>
+<% content_for :content do %>
+  <div class="title-bar">
+    <h1 class="title-bar-title">
+            <span class="d-ib">
+                    Изменить страну
+            </span>
+    </h1>
+  </div>
+  <%= form_with(model: @country, :html => {:class => 'form form-horizontal'}, local: true) do |country| %>
+    <% if @country.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@country.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @country.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="demo-form-wrapper">
 
-<%= render 'form', country: @country %>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="form-control-1">Название</label>
+            <div class="col-sm-9">
+              <%= country.text_field :name, :class => 'form-control' %>
+            </div>
 
-<%= link_to 'Show', @country %> |
-<%= link_to 'Back', countries_path %>
+            <label class="col-sm-3 control-label" for="form-control-1"></label>
+            <div class="col-sm-9" align="right">
+              <label class="btn btn-success file-upload-btn"> Изменить
+                <%= country.submit :class => 'file-upload-input' %>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= render 'form', country: @country %>
+<% end %>

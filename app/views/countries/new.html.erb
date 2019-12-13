@@ -1,5 +1,33 @@
-<h1>New Country</h1>
+<% content_for :content do %>
+  <div class="title-bar">
+    <h1 class="title-bar-title">
+            <span class="d-ib">
+                    Добавить страну
+            </span>
+    </h1>
+  </div>
+  <%= form_for @country, :html => {:class => 'form form-horizontal'} do |country| %>
 
-<%= render 'form', country: @country %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="demo-form-wrapper">
 
-<%= link_to 'Back', countries_path %>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="form-control-1">Название</label>
+            <div class="col-sm-9">
+              <%= country.text_field :name, :class => 'form-control' %>
+            </div>
+
+            <label class="col-sm-3 control-label" for="form-control-1"></label>
+            <div class="col-sm-9" align="right">
+              <label class="btn btn-success file-upload-btn"> Добавить
+                <%= country.submit :class => 'file-upload-input' %>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= render 'form', country: @country %>
+<% end %>
