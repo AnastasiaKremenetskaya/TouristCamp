@@ -6,10 +6,23 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application" %>
+
+    <script src="/app/assets/javascripts/application.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="layout layout-header-fixed">
+  <%= render 'layouts/header' %>
+  <div class="layout-main">
+  <%= render "layouts/sidebar" %>
+    <div id="content"><%= content_for?(:content) ? yield(:content) : yield %></div>
+  </div>
+  <script src="/app/assets/javascripts/elephant.js"></script>
+
   </body>
 </html>
