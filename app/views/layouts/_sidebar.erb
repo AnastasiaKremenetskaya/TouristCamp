@@ -17,10 +17,10 @@
               <% end %>
             </li>
             <li class="sidenav-item">
-              <a href="http://chistokot.test/admin/categories" aria-haspopup="true">
+              <%= link_to regions_path(@regions), :class => "button small-button green-button" do %>
                 <span class="sidenav-icon icon fa-road"></span>
                 <span class="sidenav-label">Регионы</span>
-              </a>
+              <% end %>
             </li>
             <li class="sidenav-item">
               <a href="http://chistokot.test/admin/users" aria-haspopup="true">

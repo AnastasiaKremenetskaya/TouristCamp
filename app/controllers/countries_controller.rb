@@ -1,5 +1,5 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_action :set_country, only: [ :edit, :update, :destroy]
   def index
     @countries = Country.all
   end
@@ -8,15 +8,12 @@ class CountriesController < ApplicationController
     @country = Country.new
   end
 
-
-  # POST /countries
-  # POST /countries.json
   def create
     @country = Country.new(country_params)
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to countries_path, notice: 'Страна успено добавлена' }
+        format.html { redirect_to countries_path, notice: 'Страна успешно добавлена' }
       else
         format.html { render :new }
       end
@@ -29,19 +26,17 @@ class CountriesController < ApplicationController
   def update
     respond_to do |format|
       if @country.update(country_params)
-        format.html { redirect_to countries_path, notice: 'Country was successfully updated.' }
+        format.html { redirect_to countries_path, notice: 'Страна успешно обновлена' }
       else
         format.html { render :edit }
       end
     end
   end
 
-  # DELETE /countries/1
-  # DELETE /countries/1.json
   def destroy
     @country.destroy
     respond_to do |format|
-      format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }
+      format.html { redirect_to countries_url, notice: 'Страна успешно удалена' }
     end
   end
 
