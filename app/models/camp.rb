@@ -1,4 +1,4 @@
 class Camp < ApplicationRecord
   belongs_to :city
-  validates :name, uniqueness: true
+  validates_uniqueness_of :name, scope: :city_id
 end
