@@ -1,6 +1,9 @@
 <% content_for :content do %>
-  <p id="notice" class="alert alert-success" role="alert">
-  <%= notice %></p>
+  <% unless notice.nil? %>
+    <div class="alert alert-success">
+      <p class="alert-link"><%= notice %></p>
+    </div>
+  <% end %>
   <div class="layout-content">
     <div class="layout-content-body">
       <div class="title-bar">

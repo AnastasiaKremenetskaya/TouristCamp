@@ -1,7 +1,7 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [ :edit, :update, :destroy]
   def index
-    @countries = Country.all
+    @countries = Country.all.order("created_at DESC")
   end
 
   def new

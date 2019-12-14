@@ -2,7 +2,7 @@ class RegionsController < ApplicationController
   before_action :set_region, only: [:edit, :update, :destroy]
 
   def index
-    @regions = Region.all
+    @regions = Region.all.order("created_at DESC")
   end
 
   def new
@@ -12,7 +12,13 @@ class RegionsController < ApplicationController
   def create
     @region = Region.new(region_params)
 
-    redirect_to @region, notice: 'Регион успешно добавлен'
+    respond_to do |format|
+      if @region.save
+        format.html {redirect_to region_path: 'Регион успешно добавлен'}
+      else
+        format.html { render :new }
+      end
+    end
   end
 
 
@@ -20,13 +26,20 @@ class RegionsController < ApplicationController
   end
 
   def update
-     redirect_to @region, notice: 'Регион успешно обновлен'
+    respond_to do |format|
+      if @country.update(country_params)
+        format.html {redirect_to region_path, notice: 'Регион успешно обновлен'}
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
     @region.destroy
-
-    redirect_to region_url, notice: 'Регион успешно удален'
+    respond_to do |format|
+      format.html { redirect_to region_url, notice: 'Регион успешно удален' }
+    end
   end
 
   private

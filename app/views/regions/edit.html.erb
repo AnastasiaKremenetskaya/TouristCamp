@@ -1,5 +1,8 @@
 <% content_for :content do %>
-  <div class="title-bar">
+  <div class="layout-content">
+    <div class="layout-content-body">
+
+    <div class="title-bar">
     <h1 class="title-bar-title">
             <span class="d-ib">
                     Изменить регион
@@ -33,5 +36,8 @@
       </div>
     </div>
   <% end %>
+    </div>
+  </div>
+
   <%= render 'form', region: @region %>
 <% end %>
