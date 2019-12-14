@@ -22,7 +22,7 @@
 
             <label class="col-sm-3 control-label" for="form-control-1">Регион</label>
             <div class="col-xs-4 col-sm-3">
-              <% collection_select(:region, Region.all, :id, :name, include_blank: 'Пожалуйста, укажите регион', :class=>'custom-select') %>
+              <%= city.collection_select(:region_id, Region.all, :id, :name, {:multiple => true }, :class=>'custom-select' ) %>
             </div>
 
             <label class="col-sm-3 control-label" for="form-control-1"></label>

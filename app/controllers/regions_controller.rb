@@ -27,8 +27,8 @@ class RegionsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @country.update(country_params)
-        format.html {redirect_to region_path: 'Регион успешно обновлен'}
+      if @region.update(region_params)
+        format.html {redirect_to regions_path, notice: 'Регион успешно изменен'}
       else
         format.html { render :edit }
       end
@@ -38,7 +38,7 @@ class RegionsController < ApplicationController
   def destroy
     @region.destroy
     respond_to do |format|
-      format.html { redirect_to region_url, notice: 'Регион успешно удален' }
+      format.html { redirect_to regions_url, notice: 'Регион успешно удален' }
     end
   end
 

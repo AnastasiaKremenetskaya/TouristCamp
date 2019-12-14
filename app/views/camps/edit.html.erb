@@ -22,7 +22,7 @@
 
             <label class="col-sm-3 control-label" for="form-control-1">Город</label>
             <div class="col-xs-4 col-sm-3">
-              <% collection_select(:camp, City.all, :id, :name, include_blank: 'Пожалуйста, укажите город', :class=>'custom-select') %>
+              <%= camp.collection_select(:city_id, City.all, :id, :name, {:multiple => true }, :class=>'custom-select' ) %>
             </div>
 
             <label class="col-sm-3 control-label" for="form-control-1"></label>

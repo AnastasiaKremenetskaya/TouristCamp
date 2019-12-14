@@ -36,7 +36,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to city_path: 'Город успешно изменен' }
+        format.html { redirect_to cities_path, notice: 'Город успешно изменен' }
       else
         format.html { render :edit }
       end
@@ -46,9 +46,12 @@ class CitiesController < ApplicationController
   # DELETE /cities/1
   # DELETE /cities/1.json
   def destroy
-    @city.destroy
     respond_to do |format|
-      format.html { redirect_to cities_url: 'Город успешно удален' }
+      if @city.destroy
+      format.html { redirect_to cities_url, notice: 'Город успешно удален' }
+      else
+        format.html { redirect_to cities_url, notice: 'Город невозможно удалить, так есть связанные сущности' }
+      end
     end
   end
 

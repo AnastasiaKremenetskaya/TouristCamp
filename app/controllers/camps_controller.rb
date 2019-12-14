@@ -19,7 +19,7 @@ class CampsController < ApplicationController
 
     respond_to do |format|
       if @camp.save
-        format.html { redirect_to camp_path: 'Турбаза успешно добавлена' }
+        format.html { redirect_to camps_path: 'Турбаза успешно добавлена' }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class CampsController < ApplicationController
   def update
     respond_to do |format|
       if @camp.update(camp_params)
-        format.html { redirect_to camp_path: 'Турбаза успешно изменена' }
+        format.html { redirect_to camps_path, notice: 'Турбаза успешно изменена' }
       else
         format.html { render :edit }
       end
@@ -48,7 +48,7 @@ class CampsController < ApplicationController
   def destroy
     @camp.destroy
     respond_to do |format|
-      format.html { redirect_to camps_url 'Турбаза успешно удалена' }
+      format.html { redirect_to camps_url, notice: 'Турбаза успешно удалена' }
     end
   end
 

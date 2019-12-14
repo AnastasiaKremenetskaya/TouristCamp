@@ -26,7 +26,7 @@ class CountriesController < ApplicationController
   def update
     respond_to do |format|
       if @country.update(country_params)
-        format.html { redirect_to countries_path, notice: 'Страна успешно обновлена' }
+        format.html { redirect_to countries_path, notice: 'Страна успешно изменена' }
       else
         format.html { render :edit }
       end
