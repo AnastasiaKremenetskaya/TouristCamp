@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <% unless notice.nil? %>
-    <div class="alert alert-success">
-      <p class="alert-link"><%= notice %></p>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
     </div>
   <% end %>
   <div class="layout-content">
@@ -24,6 +24,7 @@
                       #
                     </th>
                     <th>Название страны</th>
+                    <th>Количество турбаз</th>
                     <th>Дата создания</th>
                     <th>Дата изменения</th>
                   </tr>
@@ -35,6 +36,9 @@
                     </td>
                     <td>
                       <strong><%= country.name %></strong>
+                    </td>
+                    <td>
+                      <strong><%= country.camps.size %></strong>
                     </td>
                     <td class="maw-320">
                       <%= country.created_at %>
@@ -53,7 +57,7 @@
                             <%= link_to 'Изменить', edit_country_path(country) %>
                           </li>
                           <li>
-                            <%= link_to 'Удалить', country, method: :delete, data: {confirm: 'Are you sure?'} %>
+                            <%= link_to 'Удалить', country, method: :delete, data: {confirm: 'Are you sure?'}, class: "delete_btn" %>
                           </li>
                         </ul>
                       </div>

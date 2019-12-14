@@ -38,7 +38,7 @@
                       <strong><%= camp.name %></strong>
                     </td>
                     <td>
-                      <strong><%= camp.city.name %></strong>
+                      <strong><%= camp.city.name+' ('+camp.city.region.name + ', ' +camp.city.region.country.name+')'%></strong>
                     </td>
                     <td class="maw-320">
                       <%= camp.created_at %>

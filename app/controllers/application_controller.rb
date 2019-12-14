@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   def index
-    @data = 1#TouristCamp.all.count
+    @data = Camp.all.size
     render template: 'layouts/statistics'
   end
 end
