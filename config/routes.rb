@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :countries, only: [:index, :edit, :new, :create, :destroy, :update]
   resources :regions, only: [:index, :edit, :new, :create, :destroy, :update]
+  resources :cities, only: [:index, :edit, :new, :create, :destroy, :update]
   root 'application#index'
 
 end

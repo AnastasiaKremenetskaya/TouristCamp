@@ -1,41 +1,41 @@
 <div class="layout-sidebar">
-  <div class="layout-sidebar-backdrop"> </div>
+  <div class="layout-sidebar-backdrop"></div>
   <div class="layout-sidebar-body">
     <div class="custom-scrollbar">
       <nav id="sidenav" class="sidenav-collapse collapse">
         <ul class="sidenav">
-            <li class="sidenav-item active">
-              <a href="/" aria-haspopup="true">
-                <span class="sidenav-icon icon icon-home"></span>
-                <span class="sidenav-label">Главная</span>
-              </a>
-            </li>
-            <li class="sidenav-item">
-              <%= link_to countries_path(@countries), :class => "button small-button green-button" do %>
-                <span class="sidenav-icon icon fa-globe"></span>
-                <span class="sidenav-label">Страны</span>
-              <% end %>
-            </li>
-            <li class="sidenav-item">
-              <%= link_to regions_path(@regions), :class => "button small-button green-button" do %>
-                <span class="sidenav-icon icon fa-road"></span>
-                <span class="sidenav-label">Регионы</span>
-              <% end %>
-            </li>
-            <li class="sidenav-item">
-              <a href="http://chistokot.test/admin/users" aria-haspopup="true">
-                <span class="sidenav-icon icon fa-users"></span>
-                <span class="sidenav-label">Города</span>
-              </a>
-            </li>
-            <li class="sidenav-item">
-              <a href="http://chistokot.test/admin/slider" aria-haspopup="true">
-                <span class="sidenav-icon icon fa-bed"></span>
-                <span class="sidenav-label">Турбазы</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          <li class="sidenav-item active">
+            <a href="/" aria-haspopup="true">
+              <span class="sidenav-icon icon icon-home"></span>
+              <span class="sidenav-label">Главная</span>
+            </a>
+          </li>
+          <li class="sidenav-item">
+            <%= link_to countries_path(@countries), :class => "button small-button green-button" do %>
+              <span class="sidenav-icon icon fa-globe"></span>
+              <span class="sidenav-label">Страны</span>
+            <% end %>
+          </li>
+          <li class="sidenav-item">
+            <%= link_to regions_path(@regions), :class => "button small-button green-button" do %>
+              <span class="sidenav-icon icon fa-road"></span>
+              <span class="sidenav-label">Регионы</span>
+            <% end %>
+          </li>
+          <li class="sidenav-item">
+            <%= link_to cities_path(@cities), :class => "button small-button green-button" do %>
+              <span class="sidenav-icon icon fa-users"></span>
+              <span class="sidenav-label">Города</span>
+            <% end %>
+          </li>
+          <li class="sidenav-item">
+            <a href="http://chistokot.test/admin/slider" aria-haspopup="true">
+              <span class="sidenav-icon icon fa-bed"></span>
+              <span class="sidenav-label">Турбазы</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </div>
 </div>
