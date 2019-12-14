@@ -29,10 +29,10 @@
             <% end %>
           </li>
           <li class="sidenav-item">
-            <a href="http://chistokot.test/admin/slider" aria-haspopup="true">
+            <%= link_to camps_path(@camps), :class => "button small-button green-button" do %>
               <span class="sidenav-icon icon fa-bed"></span>
               <span class="sidenav-label">Турбазы</span>
-            </a>
+            <% end %>
           </li>
         </ul>
       </nav>

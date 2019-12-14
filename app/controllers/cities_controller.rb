@@ -36,7 +36,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to city_path: 'Город успешно обновлен' }
+        format.html { redirect_to city_path: 'Город успешно изменен' }
       else
         format.html { render :edit }
       end

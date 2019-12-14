@@ -1,0 +1,78 @@
+<% content_for :content do %>
+  <% unless notice.nil? %>
+    <div class="alert alert-success">
+      <p class="alert-link"><%= notice %></p>
+    </div>
+  <% end %>
+  <div class="layout-content">
+    <div class="layout-content-body">
+      <div class="title-bar">
+        <h1 class="title-bar-title">
+          <span class="d-ib">Турбазы</span>
+        </h1>
+      </div>
+      <%= link_to 'Добавить турбазу', new_camp_path, :class => "btn btn-primary btn-lg btn-warning" %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel">
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table id="demo-dynamic-tables-1" class="table table-middle nowrap">
+                  <thead>
+                  <tr>
+                    <th>
+                      #
+                    </th>
+                    <th>Название турбазы</th>
+                    <th>Город</th>
+                    <th>Дата создания</th>
+                    <th>Дата изменения</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @camps.each_with_index do |camp, index| %>
+                    <td>
+                      <%= index+1 %>
+                    </td>
+                    <td>
+                      <strong><%= camp.name %></strong>
+                    </td>
+                    <td>
+                      <strong><%= camp.city.name %></strong>
+                    </td>
+                    <td class="maw-320">
+                      <%= camp.created_at %>
+                    </td>
+                    <td>
+                      <%= camp.updated_at %>
+                    </td>
+                    <td>
+                      <div class="btn-group pull-right dropdown">
+                        <button class="btn btn-link link-muted" aria-haspopup="true"
+                                data-toggle="dropdown" type="button">
+                          <span class="icon icon-ellipsis-h icon-lg icon-fw"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li>
+                            <%= link_to 'Изменить', edit_camp_path(camp) %>
+                          </li>
+                          <li>
+                            <%= link_to 'Удалить', camp, method: :delete, data: {confirm: 'Are you sure?'} %>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    </tr>
+                  <% end -%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+<%= render template: "layouts/application" %>

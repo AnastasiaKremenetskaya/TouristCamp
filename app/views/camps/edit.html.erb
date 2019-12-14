@@ -1,0 +1,43 @@
+<% content_for :content do %>
+  <div class="layout-content">
+    <div class="layout-content-body">
+
+    <div class="title-bar">
+    <h1 class="title-bar-title">
+            <span class="d-ib">
+                    Изменить турбазу
+            </span>
+    </h1>
+  </div>
+  <%= form_with(model: @camp, :html => {:class => 'form form-horizontal'}, local: true) do |camp| %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="demo-form-wrapper">
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="form-control-1">Название</label>
+            <div class="col-sm-9">
+              <%= camp.text_field :name, :class => 'form-control' %>
+            </div>
+
+            <label class="col-sm-3 control-label" for="form-control-1">Город</label>
+            <div class="col-xs-4 col-sm-3">
+              <% collection_select(:camp, City.all, :id, :name, include_blank: 'Пожалуйста, укажите город', :class=>'custom-select') %>
+            </div>
+
+            <label class="col-sm-3 control-label" for="form-control-1"></label>
+            <div class="col-sm-9" align="right">
+              <label class="btn btn-success file-upload-btn"> Изменить
+                <%= camp.submit :class => 'file-upload-input' %>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+    </div>
+  </div>
+
+  <%= render 'form', camp: @camp %>
+<% end %>
