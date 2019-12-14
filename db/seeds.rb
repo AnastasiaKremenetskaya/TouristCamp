@@ -9,8 +9,12 @@ require 'faker'
 25.times do
   country = Country.create(name: Faker::Address.country)
   if country.persisted?
-    15.times do
-      country.regions.create(name: Faker::Address.state)
+    region = country.regions.create(name: Faker::Address.state)
+    if region.persisted?
+      city = region.cities.create(name: Faker::Address.city)
+      if city.persisted?
+        city.camps.create(name: Faker::Restaurant.name  )
+      end
     end
   end
   puts country.inspect
