@@ -1,21 +1,29 @@
-development:
+default: &default
   adapter: postgresql
-  encoding: unicode
-  database: TouristCamp_development
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: anastasiakremeneckaa
   password:
+
+development:
+  <<: *default
+  database: TouristCamp_development
+
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: TouristCamp_test
-  pool: 5
-  username: anastasiakremeneckaa
-  password:
+
+
+    production:
+      url: <%= ENV['DATABASE_URL'] %>
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: TouristCamp_production
+  username: TouristCamp
+  password: <%= ENV['TOURISTCAMP_DATABASE_PASSWORD'] %>
+
+
   # MySQL. Versions 5.5.8 and up are supported.
 #
 # Install the MySQL driver
@@ -60,11 +68,3 @@ production:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
-#production:
-#  <<: *default
-#  database: TouristCamp_production
-#  username: TouristCamp
-#  password: <%#= ENV['TOURISTCAMP_DATABASE_PASSWORD'] %>
