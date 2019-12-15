@@ -66,7 +66,7 @@ production:
   <<: *default
   database: TouristCamp_production
   username: TouristCamp
-  password: <%= ENV['TOURISTCAMP_DATABASE_PASSWORD'] %>
+  password:
 
 
   # MySQL. Versions 5.5.8 and up are supported.
