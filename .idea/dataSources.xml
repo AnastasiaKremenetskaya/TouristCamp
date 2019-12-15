@@ -7,5 +7,29 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Rails TouristCamp: production" uuid="2d8c45b3-10fe-492e-9098-cfd9f68c58b4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TouristCamp_production</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails TouristCamp: development" uuid="08b2a0d2-e55e-4b7b-9bf1-6a0185c6924a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TouristCamp_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails TouristCamp: test" uuid="434c9563-879f-469b-a891-f4b6e26f6cae">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TouristCamp_test</jdbc-url>
+    </data-source>
   </component>
 </project>
