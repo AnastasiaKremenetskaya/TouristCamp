@@ -14,7 +14,8 @@ test:
   username: anastasiakremeneckaa
   password:
 
-
+production:
+  url: <%= ENV['DATABASE_URL'] %>
   # MySQL. Versions 5.5.8 and up are supported.
 #
 # Install the MySQL driver
