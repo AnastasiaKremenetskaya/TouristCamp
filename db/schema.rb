@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_12_14_083632) do
 
-  create_table "camps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "camps", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_083632) do
     t.index ["city_id"], name: "index_camps_on_city_id"
   end
 
-  create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "region_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -28,13 +31,13 @@ ActiveRecord::Schema.define(version: 2019_12_14_083632) do
     t.index ["region_id"], name: "index_cities_on_region_id"
   end
 
-  create_table "countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "countries", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "regions", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
